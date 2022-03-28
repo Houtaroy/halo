@@ -92,29 +92,29 @@ public class AdminAuthenticationFilter extends AbstractAuthenticationFilter {
         }
 
         // Get token from request
-        String token = getTokenFromRequest(request);
-
-        if (StringUtils.isBlank(token)) {
-            throw new AuthenticationException("未登录，请登录后访问");
-        }
-
-        // Get user id from cache
-        Optional<Integer> optionalUserId =
-            cacheStore.getAny(SecurityUtils.buildTokenAccessKey(token), Integer.class);
-
-        if (!optionalUserId.isPresent()) {
-            throw new AuthenticationException("Token 已过期或不存在").setErrorData(token);
-        }
-
-        // Get the user
-        User user = userService.getById(optionalUserId.get());
-
-        // Build user detail
-        UserDetail userDetail = new UserDetail(user);
-
-        // Set security
-        SecurityContextHolder
-            .setContext(new SecurityContextImpl(new AuthenticationImpl(userDetail)));
+        // String token = getTokenFromRequest(request);
+        //
+        // if (StringUtils.isBlank(token)) {
+        //     throw new AuthenticationException("未登录，请登录后访问");
+        // }
+        //
+        // // Get user id from cache
+        // Optional<Integer> optionalUserId =
+        //     cacheStore.getAny(SecurityUtils.buildTokenAccessKey(token), Integer.class);
+        //
+        // if (!optionalUserId.isPresent()) {
+        //     throw new AuthenticationException("Token 已过期或不存在").setErrorData(token);
+        // }
+        //
+        // // Get the user
+        // User user = userService.getById(optionalUserId.get());
+        //
+        // // Build user detail
+        // UserDetail userDetail = new UserDetail(user);
+        //
+        // // Set security
+        // SecurityContextHolder
+        //     .setContext(new SecurityContextImpl(new AuthenticationImpl(userDetail)));
 
         // Do filter
         filterChain.doFilter(request, response);

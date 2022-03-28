@@ -89,9 +89,7 @@ ext {
 
 dependencies {
     implementation platform("cn.com.hangar:spring-cloud-build:0.0.1-SNAPSHOT")
-    implementation "org.springframework.cloud:spring-cloud-starter-bootstrap"
-    implementation "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery"
-    implementation "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config"
+    implementation "cn.com.hangar:spring-cloud-starter-resource-server-auto"
 
     implementation "org.springframework.boot:spring-boot-starter-actuator"
     implementation "org.springframework.boot:spring-boot-starter-data-jpa"

@@ -27,3 +27,6 @@ spring:
           client-id: halo-admin
           client-secret: 123456
           introspection-uri: http://authorization-server:9001/oauth2/introspect
+
+swagger2:
+  enable: false

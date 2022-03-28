@@ -1,7 +1,13 @@
-### 管理员登录
-POST http://authorization-server:9000/oauth2/token
+POST http://10.10.10.107:9000/oauth2/token
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=password&username=admin&password=123456&client_id=gateway-management&client_secret=123456
 
 > {% client.global.set("token", "Bearer " + response.body.access_token) %}
+
+### 管理员登录
+GET http://10.10.10.107:9000/halo-admin/api/admin/user-info
+Authorization: {{token}}
+Accept: application/json
+
+###
