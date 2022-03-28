@@ -1,0 +1,29 @@
+spring:
+  main:
+    #允许spring bean 定义覆盖,不能放到配置中心
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: halo-admin
+  profiles:
+    active: development
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.10.10.107:8848
+        namespace: spring-cloud-${spring.profiles.active}
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        file-extension: yml
+
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          client-id: halo-admin
+          client-secret: 123456
+          introspection-uri: http://authorization-server:9001/oauth2/introspect

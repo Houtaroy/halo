@@ -1,0 +1,22 @@
+GET http://localhost:9000/halo-admin/api/admin/is_installed
+Authorization: {{token}}
+Accept: application/json
+
+###
+POST http://localhost:9000/halo-admin/api/admin/logout
+Authorization: {{token}}
+Content-Type: application/json
+
+{}
+
+###
+POST http://localhost:9000/halo-admin/api/admin/login
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "Hangar@1998+"
+}
+
+###
