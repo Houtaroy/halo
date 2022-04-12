@@ -81,12 +81,6 @@ ext {
     diffUtilsVersion = '4.11'
 }
 
-//dependencyManagement {
-//    imports {
-//        mavenBom "cn.com.hangar:spring-cloud-dependencies:0.0.1-SNAPSHOT"
-//    }
-//}
-
 dependencies {
     implementation platform("cn.com.hangar:spring-cloud-build:0.0.1-SNAPSHOT")
     implementation "cn.com.hangar:spring-cloud-starter-resource-server-auto"
@@ -154,7 +148,7 @@ dependencies {
     }
     testImplementation "org.jsoup:jsoup:$jsoupVersion"
 
-    testImplementation("com.github.kstyrc:embedded-redis:$embeddedRedisVersion") {
+    testImplementation ("com.github.kstyrc:embedded-redis:$embeddedRedisVersion") {
         exclude group: 'org.slf4j', module: 'slf4j-simple'
     }
 

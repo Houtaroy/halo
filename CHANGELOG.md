@@ -1,5 +1,59 @@
 # CHANGELOG
 
+# 1.5.2
+
+## Improvements
+
+- 保存文章的时候不再保存内容到 `posts` 表，`originalContent` 和 `formatContent` 已经是废弃字段。 halo-dev/halo#1797 @guqing
+- 优化 Markdown 文档导入的 FrontMatter 的解析规则。 halo-dev/halo#1813 @LIlGG
+- 优化文章和分类的加密逻辑。 halo-dev/halo#1826 halo-dev/halo#1827 @guqing
+- 后台文章设置中选择分类列表支持显示加密状态。 halo-dev/halo-admin#540 @ruibaby
+- 后台文章管理中分类筛选列表支持显示加密状态。 halo-dev/halo-admin#541 @ruibaby
+
+## Bug Fixes
+
+- 修复无法删除分类的问题。 halo-dev/halo#1806 @guqing
+- 修复加密文章在前台部分 API 中被包含的问题。 halo-dev/halo#1811 @guqing
+- 修复本地附件上传在 Windows 平台下最终路径出现多个分隔符的问题。 halo-dev/halo#1812 @guqing
+- 修复删除加密分类之后，其下文章没有同步更改状态的问题。 halo-dev/halo#1815 @guqing
+- 修复批量发布加密文章没有同步状态的问题。 halo-dev/halo#1821 @guqing
+- 修复更改回收站文章的设置时，文章被重新发布的问题。 halo-dev/halo#1820 @guqing
+- 修复从 1.4.x 升级到 1.5.x 之后，原本非发布状态的文章可能无法保存的问题。 halo-dev/halo#1814 @guqing
+- 修复分类统计文章数量没有排除回收站文章的问题。 halo-dev/halo#1822 @guqing
+- 修复标签统计文章数量没有排除回收站文章的问题。 halo-dev/halo#1823 @guqing
+- 修复加密文章从回收站恢复后的状态不是加密的问题。 halo-dev/halo#1824 @guqing
+- 修复后台仪表盘统计中图标显示不完整的问题。 halo-dev/halo-admin#536 @ruibaby
+- 修复后台页面切换时长超过 250ms 的时候不显示加载条的问题。 halo-dev/halo-admin#539 @ruibaby
+- 修复后台文章回收站列表文章标题无法显示完整的问题。 halo-dev/halo-admin#537 @ruibaby
+- 修复后台分类列表当没有数据的时候不显示空状态的问题。 halo-dev/halo-admin#538 @ruibaby
+- 重构后台主题色切换逻辑，修复切换主题色之后，部分样式异常的问题。 halo-dev/halo-admin#543 @ruibaby
+
+## Dependencies
+
+- 升级 Spring Boot 版本至 2.5.12。 halo-dev/halo#1819 @guqing
+- 更新后台 @halo-dev/editor 版本。 halo-dev/halo-admin#535 @ruibaby
+    - 修复点击导航菜单项无法滚动到指定预览区域的问题。
+
+# 1.5.1
+
+## Bug Fixes
+
+- 修复文章加密和分类加密功能的逻辑问题。 halo-dev/halo#1781 halo-dev/halo#1785 @guqing @qiany-sui
+- 修复文章和分类的链接带有中文时从密码页重定向到详情页面提示 404 的问题。 halo-dev/halo#1786 @guqing @hotspring-zwb
+- 修复使用 leveldb 缓存策略时，可能因为未清空缓存导致无法发布文章的问题。 halo-dev/halo#1787 @guqing
+- 修复后台菜单管理 `从系统预设链接添加菜单` 中选择独立页面无法创建菜单的问题。 halo-dev/halo-admin#520 @QuentinHsu
+- 修复后台布局设置中，`亮色菜单风格` 所使用的图标不正确的问题。 halo-dev/halo-admin#524 @QuentinHsu @wangzhen-fit2cloud
+- 修复后台首次创建文章时是否置顶按钮无法切换的问题。 halo-dev/halo-admin#525 halo-dev/halo-admin#530 @QuentinHsu @ruibaby @guqing
+- 修复后台在 SMTP 设置中测试邮件发送时，提示有误的问题。 halo-dev/halo-admin#526 @QuentinHsu @hapke24
+- 修复后台分类管理中当父分类为加密状态时，超过第二级子分类没有显示加密状态的问题。 halo-dev/halo-admin#527
+
+## Dependencies
+
+- 升级 Spring Boot 版本至 2.5.11，处理 [CVE-2022-22950: Spring Expression DoS Vulnerability](https://tanzu.vmware.com/security/cve-2022-22950) 中的安全性问题。 halo-dev/halo#1792 @guqing
+- 更新后台 @halo-dev/editor 版本。 halo-dev/halo-admin#529 @ruibaby
+    - 统一编辑器字体在各个系统的表现。
+    - 修复使用中文输入法的时候，候选框挡住当前行文字的问题。
+
 # 1.5.0
 
 ## Breaking changes
