@@ -81,6 +81,12 @@ ext {
     diffUtilsVersion = '4.11'
 }
 
+dependencyManagement {
+    resolutionStrategy {
+        cacheChangingModulesFor 0, 'seconds'
+    }
+}
+
 dependencies {
     implementation platform("cn.com.hangar:spring-cloud-build:0.0.1-SNAPSHOT")
     implementation "cn.com.hangar:spring-cloud-starter-resource-server-auto"
